@@ -1,0 +1,34 @@
+{%extends 'core/base.html'%}
+{%block title%}login{%endblock%}
+
+{%block content%}
+<div class="p-12">
+  <div class="px-6 py-3 rounded-xl bg-gray-800 text-center">
+  <form method='post' action='.'>
+
+    {% csrf_token %}
+    <div>
+      <div  class='m-3'>
+      <label for="username" class='text-white font-bold'>Username</label>
+      <p >{{form.username}}</p></div>
+      <div  class='m-3'>
+        <label for="username" class='text-white font-bold'>Email</label>
+        <p >{{form.email}}</p></div>
+     <div class='grid grid-cols-2 mx-40'> 
+      <div  class='m-3'>
+      <label for="password1" class='text-white font-bold'>Password</label>
+      <p>{{form.password1}}</p></div>
+      <div  class='m-3'><label for="password2" class='text-white font-bold'>Confirm Password</label>
+      <p>{{form.password2}}
+        
+      </p></div>
+      <a href='#' class='text-white underline font-semibold'>Forget Password</a>
+      <a href='{%url 'core:login' %}' class='text-white underline font-semibold'>Already have account</a>
+      </div>
+    <input type="submit" value="SignUp" class='px-3 py-1 my-4 bg-green-400 text-white font-semibold rounded-xl shadow-md hover:shadow-teal-400 hover:scale-105 transition-all duration-300'>
+  </div>
+  </form>
+
+</div>
+ </div>
+{%endblock%}

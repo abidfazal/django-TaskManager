@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    {%if tasks%}
+  <div class = 'mt-6 px-6 '>
+    <h1 class='mb-12 text-2xl text-center text-bold text-white'>Your Current Task List</h1> </div>
+    
+    <div class='mt-6 px-4 border-t border-b'>
+        <div class='text-center text-3xl py-3 text-white bg-gray-800 rounded-xl mt-3'>
+            <h1>Tasks With High Priority</h1>
+            
+            </div>
+        <div class='px-3 py-6 mb-4 grid grid-cols-4 gap-6'>
+
+            {% for task in tasks %}
+            <a href='{% url 'core:details' task.id %}'><div class='bg-gray-900 text-white   rounded-md p-4 shadow-md hover:shadow-teal-400 hover:scale-105 transition-all duration-300 ease-in'>
+                <h1 class='text-3xl text-bold text-center '>{{ task.title }}</h1>
+             <div class='text-center text-1xl'>
+                <p >{{task.description}}</p>
+                <p class='text-green-500'>Due Date :{{task.due_date}}</p>
+              
+             </div>
+            </div>
+            </a>
+           
+                {%endfor%}
+        </div>
+    </div>
+        {% endif %}
+
+        {%if tasks_M%}
+        <div class='mt-6 px-4'>
+            <div class='text-center text-3xl py-3 text-white bg-gray-800 rounded-xl mt-3'>
+                <h1>Tasks With Medium Priority</h1>
+                
+                </div>
+            <div class='px-3 py-6 mb-4 grid grid-cols-4 gap-6'>
+    
+                {% for task in tasks_M %}
+                <a href='{% url 'core:details' task.id %}'><div class='bg-gray-900 text-white   rounded-md p-4 shadow-md hover:shadow-teal-400 hover:scale-105 transition-all duration-300 ease-in'>
+                    <h1 class='text-3xl text-bold text-center '>{{ task.title }}</h1>
+                 <div class='text-center text-1xl'>
+                    <p >{{task.description}}</p>
+                    <p class='text-green-500'>Due Date :{{task.due_date}}</p>
+                    
+                 </div>
+                </div>
+                </a>
+                    {%endfor%}
+            </div>
+
+    </div>
+    {%endif%}
+    {%if tasks_L%}
+    <div class='mt-6 px-4'>
+        <div class='text-center text-3xl py-3 text-white bg-gray-800 rounded-xl mt-3'>
+            <h1>Tasks With Low Priority</h1>
+            
+            </div>
+        <div class='px-3 py-6 mb-4 grid grid-cols-4 gap-6'>
+
+            {% for task in tasks_L %}
+            <a href='{% url 'core:details' task.id %}'><div class='bg-gray-900 text-white   rounded-md p-4 shadow-md hover:shadow-teal-400 hover:scale-105 transition-all duration-300 ease-in'>
+                <h1 class='text-3xl text-bold text-center '>{{ task.title }}</h1>
+             <div class='text-center text-1xl'>
+                <p >{{task.description}}</p>
+                <p class='text-green-500'>Due Date :{{task.due_date}}</p>
+                
+             </div>
+            </div>
+            </a>
+                {%endfor%}
+        </div>
+
+</div>
+{%endif%}
+</div>
+{% endblock  %}

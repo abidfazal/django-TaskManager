@@ -1,0 +1,32 @@
+{%extends 'core/base.html'%}
+
+{%block content%}
+<div class='mx-6 my-8 px-7 py-12 text-center bg-gray-800 rounded-xl text-white text-semibold  ' >
+        <h1 class='text-3xl'><strong class='text-green-500'>Task title</strong> <br>{{task.title}}</h1>
+        <div class='m-3'>
+            <p class='mt-2'><strong class='text-green-500'>Description</strong> <br>{{task.description}}</p>
+            <p class='mt-2'><strong class='text-green-500'>Catagory</strong> : {{task.catagory}}</p>
+            <p class='mt-2'><strong class='text-green-500'>Priority</strong> : {{task.priority}}</p>
+        </div>
+        <div>
+            <p class='mt-2'><strong class='text-green-500'>Due Date</strong> : <span class='text-red-500'>{{task.due_date}}</span></p>
+        </div>
+
+
+    </div>
+
+    <div class="px-6 py-6 mx-6 flex justify-between item-center text-white">
+        <a  href= '{%url 'core:edit' task.id %}' class='font-bold text-1xl bg-green-600 px-6 py-2  shadow-md hover:shadow-teal-200 hover:scale-105 hover:bg-green-700 transition-all duration-300 rounded-xl'>Edit Task</a>
+        <div class="space-x-9">
+            <a href= '{% url 'core:delete' task.id %}' 
+            class=' font-bold text-1xl bg-red-600 px-6 py-2  shadow-md hover:shadow-red-400 hover:scale-105 hover:bg-red-700  transition-all duration-300 rounded-xl'>Delete task</a></div>
+        </div> 
+
+
+    
+<br>
+<br>
+
+
+
+{%endblock%}

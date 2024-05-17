@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="px-6 py-6 flex justify-between item-center border-b bg-gray-900 text-white">
+        <a  href="/" class='underline font-bold'><strong class='text-green-300 font-bold '>|</strong>Task Manager</a>
+        <div class="space-x-6 ">
+            <div class='inline-block mx-9 '>
+                <label for="search">Search</label>
+                <input type="text" name="search" id="search" class='rounded-full  text-blue-800 w-99 px-4 '>
+            </div>
+            <a href='{%url 'core:add' %}' class=' py-3 rounded-xl font-semibold hover:text-green-300'>Add Task</a>
+            <a href="#" class='  py-3 rounded-xl font-semibold hover:text-green-300'>Completed</a>
+            
+            {% comment %} <a href="#" class='bg-gray-500 px-5 py-3 rounded-xl font-semibold text-white hover:bg-gray-700'>Dashboard</a> {% endcomment %}
+            {%if request.user.is_authenticated %}
+            <a href='{%url 'core:logout' %}' class='bg-white px-5 py-1 rounded-xl font-semibold text-blue-800 hover:bg-gray-100'>LogOut</a>
+            {%else%}
+            <a href='{% url 'core:signup' %}' class='bg-green-500 px-5 py-3 rounded-xl font-semibold text-white hover:bg-green-700'>SignUp</a>
+          
+            {%endif%}
+        </div>
+
+    </nav>
+
+    <div class='bg-gray-700 p-3'>
+        {%block content%}
+        {%endblock%}
+    </div>
+    <footer class='text-white p-6  bg-gray-900 grid grid-cols-3 gap-14  w-full'>
+
+        <div><h3 class='font-semibold'>About</h3>
+         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A ea ipsum nulla. Esse ullam beatae praesentium explicabo ab nam quod minima a voluptas delectus veritatis in maxime, non assumenda hic.</p>
+
+        </div>
+        <div >
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search" class='rounded-xl w-80 text-blue-800 mt-6 p-2'>
+        </div>
+        <div>
+            <h3><a href="#" class='hover:text-green-400'>Contact</a></h3>
+            <h3><a href="#"  class='hover:text-green-400'> Privacy policy</a></h3>
+            <h3 ><a href="#" class='hover:text-green-400'>Terms of use</h3></a>
+        </div>
+
+
+
+    </footer>
+</body>
+</html>
